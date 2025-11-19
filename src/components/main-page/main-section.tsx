@@ -1,7 +1,6 @@
 import Header from "@/components/header/header";
 import Image from "next/image";
 import Threads from "@/components/ui/Threads";
-import Link from "next/link";
 import ArrowButton from "@/components/ui/ArrowButton";
 
 
@@ -9,16 +8,15 @@ export default function MainSection() {
 
     return (
         <section className="relative w-full h-[100vh] bg-custom-dark">
-            <div className="absolute w-full h-full">
+
                 <Threads
                     color={[0.6, 0.0, 1.0]}
                     amplitude={3}
                     distance={0}
                     enableMouseInteraction={false}
                 />
-            </div>
             <Header />
-            <div className="container h-[80vh] mx-auto">
+            <div className="relative container h-[80vh] mx-auto z-20">
                 <div className="flex w-full h-full justify-between items-end">
                     <h1 className="w-full max-w-[816px] font-medium text-white text-[68px]">
                         Новое поколение решений для L&D</h1>

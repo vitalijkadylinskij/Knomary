@@ -6,7 +6,7 @@ import AnimatedButton from "@/components/ui/AnimatedButton";
 export default function Header() {
 
     return (
-        <header className="relative w-full py-5 px-10 bg-transparent">
+        <header className="relative w-full py-5 px-10 bg-transparent z-20">
             <div className="flex w-full items-center justify-between text-white">
                 <div className="w-[175px] h-[21px]">
                     <Link href="/">
