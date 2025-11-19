@@ -129,3 +129,20 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  @keyframes wave-in {
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(0.4);
+      opacity: 0;
+    }
+  }
+
+  .animate-wave-in {
+    animation: wave-in 2.4s linear infinite;
+  }
+}

@@ -21,27 +21,27 @@ export default function ProductsSection() {
                         imageWrapperClassName="group-hover:bg-custom-red"
                     />
                     <CardFeature
-                        title="Целеполагание"
-                        description="Платформа для постановки целей и управления мотивацией сотрудников"
-                        tags={["Цели", "Мотивация"]}
+                        title="TMS"
+                        description="Платформа для комплексной автоматизации процессов управления талантами"
+                        tags={["Автоматизация", "Таланты"]}
                         image="/images/violet.jpg"
                         href="/"
                         tagsClassName="group-hover:bg-custom-violet"
                         imageWrapperClassName="group-hover:bg-custom-violet"
                     />
                     <CardFeature
-                        title="Целеполагание"
-                        description="Платформа для постановки целей и управления мотивацией сотрудников"
-                        tags={["Цели", "Мотивация"]}
+                        title="Production"
+                        description="Разработка обучающих курсов любого формата под индивидуальные требования"
+                        tags={["Разработка курсов"]}
                         image="/images/bluee.jpg"
                         href="/"
                         tagsClassName="group-hover:bg-custom-blue"
                         imageWrapperClassName="group-hover:bg-custom-blue"
                     />
                     <CardFeature
-                        title="Целеполагание"
-                        description="Платформа для постановки целей и управления мотивацией сотрудников"
-                        tags={["Цели", "Мотивация"]}
+                        title="Линда"
+                        description="Платформа для совместной разработки электронных SCORM-курсов"
+                        tags={["Линда", "Курсы"]}
                         image="/images/green.png"
                         href="/"
                         tagsClassName="group-hover:bg-custom-green"
