@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Onest } from 'next/font/google'
 import "./globals.css";
-import { useLenis } from "./lenis";
 import LenisProvider from "@/app/LenisProvider";
 
 

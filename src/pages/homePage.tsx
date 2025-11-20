@@ -3,6 +3,11 @@ import ProductsSection from "@/components/products-section/products-section";
 import LogoLoop from "@/components/ui/LogoLoop";
 import React from "react";
 import {SiNextdotjs, SiReact, SiTailwindcss, SiTypescript} from "react-icons/si";
+import TechnologiSection from "@/components/technologi/technologi-section";
+import ResearchSection from "@/components/researches/researches-section";
+import NewsSection from "@/components/news/news-section";
+import ContactFormSection from "@/components/contact-form/contact-form-section";
+import Footer from "@/components/footer/footer";
 
 
 const techLogos = [
@@ -37,6 +42,11 @@ export default function HomePage() {
                 />
             </div>
             <ProductsSection/>
+            <TechnologiSection />
+            <ResearchSection />
+            <NewsSection />
+            <ContactFormSection />
+            <Footer />
         </main>
     );
 }

@@ -6,8 +6,8 @@ export function useLenis() {
 
     useEffect(() => {
         const lenis = new Lenis({
-            lerp: 0.9,
-            wheelMultiplier: 1.0,
+            lerp: 0.1,
+            wheelMultiplier: 0.7,
         })
 
         lenisRef.current = lenis

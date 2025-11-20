@@ -7,7 +7,7 @@ export default function ProductsSection() {
     return (
         <section id="Products" className="relative pt-20 w-full h-full bg-gradient-to-b from-[#1f232a] via-[#4b53ff] to-[#c4d3e2]">
             <div className="container w-[80%] h-full mx-auto">
-                <h1 className="flex text-center justify-center text-white font-medium text-[44px] leading-[44px]">
+                <h1 className="flex text-center justify-center text-white font-medium text-6xl leading-[44px]">
                     Продукты Knomary
                 </h1>
                 <div className="py-20 grid grid-cols-2 grid-rows-2 gap-3">

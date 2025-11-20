@@ -3,20 +3,40 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
-export default function AnimatedButton() {
+interface AnimatedButtonProps {
+    buttonColor?: string; // цвет фона кнопки
+    textColor?: string; // цвет текста
+    borderColor?: string; // цвет границы
+    hoverColor?: string; // цвет текста при ховере
+    hoverBgColor?: string; // цвет фона при ховере
+    circleColor?: string; // цвет растягивающегося круга
+    arrowClassName?: string; // класс для стрелки
+    arrowSize?: number; // размер стрелки
+}
+
+export default function AnimatedButton({
+                                           buttonColor = "transparent",
+                                           textColor = "#ffffff",
+                                           borderColor = "#6B7280",
+                                           hoverColor = "#000000",
+                                           hoverBgColor = "#ffffff",
+                                           circleColor = "#ffffff", // по умолчанию белый
+                                           arrowClassName = "text-black", // по умолчанию черная стрелка
+                                           arrowSize = 20, // размер стрелки по умолчанию
+                                       }: AnimatedButtonProps) {
     return (
         <motion.button
             initial={false}
             whileHover="hover"
             animate="rest"
-            className="relative flex items-center justify-between px-6 py-7 rounded-full border border-gray-500 bg-transparent overflow-hidden w-[235px] h-[48px] cursor-pointer"
+            className={`relative flex items-center justify-between px-6 py-6 rounded-full border ${borderColor} ${buttonColor} overflow-hidden w-[246px] h-[50px] cursor-pointer`}
         >
             {/* Текст */}
             <motion.span
                 className="font-normal text-base relative z-20"
                 variants={{
-                    rest: { color: "#ffffff" },
-                    hover: { color: "#000000" },
+                    rest: { color: textColor },
+                    hover: { color: hoverColor },
                 }}
                 transition={{ duration: 0.25 }}
             >
@@ -25,10 +45,11 @@ export default function AnimatedButton() {
 
             {/* Растягивающийся круг */}
             <motion.div
-                className="absolute right-1 top-1/2 -translate-y-1/2 h-12 w-10 bg-white rounded-full z-0"
+                className="absolute right-1 top-1/2 -translate-y-1/2 h-12 w-10 rounded-full z-0"
+                style={{ backgroundColor: circleColor }} // Цвет круга можно задать через пропс
                 variants={{
-                    rest: { width: "50px" },
-                    hover: { width: "100%", height: "100%", right: 0 },
+                    rest: { width: "50px", height: "47px" },
+                    hover: { width: "100%", height: "100%", right: 0, backgroundColor: hoverBgColor },
                 }}
                 transition={{ type: "spring", stiffness: 190, damping: 22 }}
             />
@@ -42,12 +63,9 @@ export default function AnimatedButton() {
                 }}
                 transition={{ duration: 0.7, ease: "easeOut" }}
             >
-                <ArrowUpRight className="text-black" size={20} />
+                <ArrowUpRight className={`${arrowClassName}`} size={arrowSize} />
             </motion.div>
         </motion.button>
     );
 }
-
-
-
 
