@@ -15,8 +15,8 @@ export default function ProductsSection() {
                         title="Целеполагание"
                         description="Платформа для постановки целей и управления мотивацией сотрудников"
                         tags={["Цели", "Мотивация"]}
-                        image="/images/red.png"
-                        href="/"
+                        image="/red.png"
+                        href="/products/goal"
                         tagsClassName="group-hover:bg-custom-red"
                         imageWrapperClassName="group-hover:bg-custom-red"
                     />
@@ -24,8 +24,8 @@ export default function ProductsSection() {
                         title="TMS"
                         description="Платформа для комплексной автоматизации процессов управления талантами"
                         tags={["Автоматизация", "Таланты"]}
-                        image="/images/violet.jpg"
-                        href="/"
+                        image="/violet.jpg"
+                        href="/products/tms"
                         tagsClassName="group-hover:bg-custom-violet"
                         imageWrapperClassName="group-hover:bg-custom-violet"
                     />
@@ -33,8 +33,8 @@ export default function ProductsSection() {
                         title="Production"
                         description="Разработка обучающих курсов любого формата под индивидуальные требования"
                         tags={["Разработка курсов"]}
-                        image="/images/bluee.jpg"
-                        href="/"
+                        image="/bluee.jpg"
+                        href="/products/production"
                         tagsClassName="group-hover:bg-custom-blue"
                         imageWrapperClassName="group-hover:bg-custom-blue"
                     />
@@ -42,8 +42,8 @@ export default function ProductsSection() {
                         title="Линда"
                         description="Платформа для совместной разработки электронных SCORM-курсов"
                         tags={["Линда", "Курсы"]}
-                        image="/images/green.png"
-                        href="/"
+                        image="/green.png"
+                        href="https://lynda.ru/"
                         tagsClassName="group-hover:bg-custom-green"
                         imageWrapperClassName="group-hover:bg-custom-green"
                     />

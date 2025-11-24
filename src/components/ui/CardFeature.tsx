@@ -48,13 +48,14 @@ const CardFeature: React.FC<CardFeatureProps> = ({
             )}
         >
             {/* Header */}
+            <Link href={href}>
             <div className="flex items-center justify-between px-5">
                 <div className="flex items-center">
                     <h3 className="text-2xl font-semibold mr-5">{title}</h3>
 
-                    <Link href={href} className="text-gray-500 group-hover:text-black transition">
-                        <span className="text-3xl">›</span>
-                    </Link>
+
+                        <span className="text-gray-500 group-hover:text-black transition text-3xl">›</span>
+
                 </div>
 
                 <div className="flex gap-2 mt-3">
@@ -104,6 +105,7 @@ const CardFeature: React.FC<CardFeatureProps> = ({
                     )}
                 />
             </div>
+            </Link>
         </div>
     );
 };

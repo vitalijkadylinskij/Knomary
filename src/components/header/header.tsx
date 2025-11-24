@@ -21,25 +21,25 @@ export default function Header() {
                     </Link>
                 </div>
                 <div className="flex w-[50%] items-center justify-around font-normal text-base">
-                    <div className="flex items-center justify-center">
+                    <Link href={"/products/goal"} className="flex items-center justify-center">
                         <div className="w-[9px] h-[9px] border border-transparent rounded-full bg-custom-red mr-3"/>
                         <div className="cursor-pointer hover:text-custom-red transition-colors duration-300">Целепологание</div>
-                    </div>
-                    <div className="flex items-center justify-center">
+                    </Link>
+                    <Link href={"/products/tms"} className="flex items-center justify-center">
                         <div className="w-[9px] h-[9px] border border-transparent rounded-full bg-custom-violet mr-3"/>
                         <div className="cursor-pointer hover:text-custom-violet transition-colors duration-300">TMS</div>
-                    </div>
-                    <div className="flex items-center justify-center">
+                    </Link>
+                    <Link href={"/products/production"} className="flex items-center justify-center">
                         <div className="w-[9px] h-[9px] border border-transparent rounded-full bg-custom-blue mr-3"/>
                         <div className="cursor-pointer hover:text-custom-blue transition-colors duration-300">Production</div>
-                    </div>
-                    <div className="flex items-center justify-center">
+                    </Link>
+                    <Link href={"https://lynda.ru/"} className="flex items-center justify-center">
                         <div className="w-[9px] h-[9px] border border-transparent rounded-full bg-custom-green mr-3"/>
                         <div className="cursor-pointer hover:text-custom-green transition-colors duration-300">Линда</div>
-                    </div>
-                    <div className="flex items-center justify-center">
+                    </Link>
+                    <Link href={"/products/production"} className="flex items-center justify-center">
                         <div className="cursor-pointer">Контакты</div>
-                    </div>
+                    </Link>
                 </div>
                 <AnimatedButton/>
             </div>

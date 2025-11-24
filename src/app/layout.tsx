@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${onest.variable} ${onest.variable} antialiased`}
+        className={`${onest.variable} antialiased`}
       >
       <LenisProvider />
         {children}
