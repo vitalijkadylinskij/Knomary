@@ -22,7 +22,7 @@ export default function MissionSection() {
     ];
 
     return (
-        <section className="w-[85%] mx-auto flex flex-col py-30 px-6">
+        <section className="w-[85%] mx-auto flex flex-col pt-30 px-6">
             <h1 className="text-5xl md:text-6xl font-semibold text-[#192128] ml-60 mb-12">
                 Привет!
             </h1>

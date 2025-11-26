@@ -7,9 +7,8 @@ import Footer from "@/components/footer/footer";
 import Image from "next/image";
 import TextType from "@/components/ui/TextType";
 import ScrollStepper from "@/components/ui/ScrollProgressSteps";
-import ProductsSection from "@/components/production-page-component/mission-section/mission-section";
-import MissionSection from "@/components/production-page-component/mission-section/mission-section";
 import ProductionPage from "@/pages/productionPage";
+import TmsPage from "@/pages/tmsPage";
 
 interface ProductPageProps {
     params: Promise<{ slug: string }>;
@@ -382,6 +381,7 @@ export default function ProductPage({ params }: ProductPageProps) {
                 </div>
             </div>)}
             {slug === "production" ? <ProductionPage/> : null}
+            {slug === "tms" ? <TmsPage /> : null}
             <Footer/>
         </div>
     );

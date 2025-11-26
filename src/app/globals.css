@@ -252,3 +252,33 @@ html.lenis {
   box-shadow: 0 35px 60px rgba(0, 0, 0, 0.28);
 }
 
+.frame {
+  position: relative;
+  /* общий радиус рамки */
+  border-radius: 28px;
+  /* важный: не обрезаем выступающие карточки */
+  overflow: visible;
+}
+
+/* Толщина рамки (в px) */
+/* Подставь значение, например 124px */
+.frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit; /* важно — псевдоэлемент наследует радиус */
+  /* inset box-shadow рисует внутреннюю закругленную рамку */
+  box-shadow: inset 0 0 0 124px rgba(12, 16, 19, 0.72);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Контент выше псевдоэлемента */
+.content {
+  position: relative;
+  z-index: 20;
+  /* padding = thickness рамки, чтобы контент не перекрывал внутреннюю полосу */
+  padding: 124px;
+  border-radius: calc(28px - 0px); /* внутренний радиус контента (можно корректировать) */
+}
+

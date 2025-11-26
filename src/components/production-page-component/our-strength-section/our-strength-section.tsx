@@ -17,7 +17,7 @@ export default function OurStrengthSection() {
 
     return (
         <section className="w-[85%] mx-auto flex flex-col py-30 px-6">
-            <div className="flex flex-col gap-3 w-full items-center mt-30">
+            <div className="flex flex-col gap-3 w-full items-center">
                 <h2 className="text-5xl font-medium w-[800px]">В чем сила</h2>
                 <div className="w-full max-w-[800px] font-normal text-xl mt-5">
                     Мы берем на себя весь цикл разработки: от концепции до финального тестирования. При этом по запросу выполняем и отдельные задачи, например, помогаем с дизайном или методологией.
@@ -40,7 +40,7 @@ export default function OurStrengthSection() {
                     Работая вместе над продуктом, мы усиливаем экспертизу друг друга, чтобы получить лучший результат.
                 </div>
             </div>
-            <div className="relative w-full mt-5">
+            <div className="relative w-full mt-15">
                 <Image
                     src="/images/products-page-image/strength-1.png"
                     alt="str"
