@@ -34,12 +34,38 @@ export default function ScrollStepper({
     const [height, setHeight] = useState(0);
     const [barTop, setBarTop] = useState(0);
     const [sliderPos, setSliderPos] = useState(0);
+    const barRef = useRef<HTMLDivElement | null>(null);
+    const [barHeight, setBarHeight] = useState(0);
 
-    const sliderHeight = 440;
+    const sliderHeight = 340;
 
     const addStepRef = (el: HTMLDivElement | null, index: number) => {
         stepRefs.current[index] = el;
     };
+
+    useEffect(() => {
+        const bar = barRef.current;
+        if (!bar) return;
+
+        const measureBar = () => {
+            if (!barRef.current) return;
+            const rect = barRef.current.getBoundingClientRect();
+            setBarHeight(rect.height);
+        };
+
+        measureBar();
+
+        const ro = new ResizeObserver(() => measureBar());
+        ro.observe(bar);
+
+        window.addEventListener("resize", measureBar);
+
+        return () => {
+            ro.disconnect();
+            window.removeEventListener("resize", measureBar);
+        };
+    }, []);
+
 
     // measure
     useEffect(() => {
@@ -71,9 +97,15 @@ export default function ScrollStepper({
             const scrollY = window.scrollY;
             const vh = window.innerHeight;
 
-            const slider = scrollY + vh / 2 - barTop;
-            setSliderPos(Math.min(Math.max(slider, 0), height - sliderHeight));
+            const rawPos = scrollY + vh / 2 - barTop;
 
+            const maxPos = Math.max(0, barHeight - sliderHeight);
+
+            const clampedPos = Math.min(Math.max(rawPos, 0), maxPos);
+
+            setSliderPos(clampedPos);
+
+            // Логика активного шага
             const centerY = vh / 2;
             let closestIndex = 0;
             let closestDelta = Infinity;
@@ -100,15 +132,17 @@ export default function ScrollStepper({
         onScroll();
         window.addEventListener("scroll", onScroll, { passive: true });
         return () => window.removeEventListener("scroll", onScroll);
-    }, [steps.length, height, barTop, activeStep, onStepChange]);
+    }, [barHeight, barTop, steps.length, activeStep]);
+
 
     return (
         <div ref={wrapperRef} className="relative pointer-events-none w-fit">
 
             {/* Серая линия (фон барра) */}
             <div
+                ref={barRef}
                 className="absolute left-8 top-0 w-[3px] bg-[#D4D7DF] rounded-full"
-                style={{ height }}
+                style={{ height: "90%" }}
             />
 
             {/* ПОЛЗУНОК */}

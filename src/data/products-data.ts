@@ -4,6 +4,10 @@ export interface ProductData {
     image: string;
     imageSecondBlock_2?: any;
     imageSecondBlock_3?: any;
+    imageSecondBlock_4?: any;
+    imageSecondBlock_5?: any;
+    imageSecondBlock_6?: any;
+    imageSecondBlock_7?: any;
     tags: string[];
     subtitle?: string;
     modalText?: string;
@@ -11,6 +15,7 @@ export interface ProductData {
     title3?: string;
     modalStrongText?: string;
     titleSecondBlock?: string;
+    imageSecondBlock_gif?: any;
 }
 
 const productsData: Record<string, ProductData> = {
@@ -23,6 +28,11 @@ const productsData: Record<string, ProductData> = {
         modalText: " и является на 100% собственной разработкой Knomary",
         image: "/images/products-page-image/process-image-1.svg",
         imageSecondBlock_2: "/images/products-page-image/process-image-second-2.svg",
+        imageSecondBlock_gif: "/images/products-page-image/line-dots.gif",
+        imageSecondBlock_4: "/images/products-page-image/process-image-2.svg",
+        imageSecondBlock_5: "/images/products-page-image/process-imagsecond-bg-3.svg",
+        imageSecondBlock_6: "/images/products-page-image/process-image-second-3.svg",
+        imageSecondBlock_7: "/images/products-page-image/process-image-3.svg",
         tags: ["Цели", "Мотивация"],
         titleSecondBlock: "Все этапы процесса целеполагания",
     },
@@ -38,6 +48,11 @@ const productsData: Record<string, ProductData> = {
         image: "/images/products-page-image/talant-image-1.svg",
         imageSecondBlock_2: "/images/products-page-image/talant-image-2.svg",
         imageSecondBlock_3: "/images/products-page-image/talant-image-3.svg",
+        imageSecondBlock_gif: "/images/products-page-image/talant-image-second-1.svg",
+        imageSecondBlock_4: "/images/products-page-image/talant-image-second-2.svg",
+        imageSecondBlock_5: "/images/products-page-image/talant-image-three-bg.svg",
+        imageSecondBlock_6: "/images/products-page-image/talant-image-three-1.svg",
+        imageSecondBlock_7: "/images/products-page-image/talant-image-three-2.svg",
         tags: ["Автоматизация", "Таланты"],
         titleSecondBlock: "Полный цикл управления талантами",
     },
@@ -45,7 +60,6 @@ const productsData: Record<string, ProductData> = {
     production: {
         title: "Knomary Production",
         description: "Решаем любые задачи, связанные с коммуникацией и обучением сотрудников крупных компаний: от онбординга новичков до видео с ТОП-менеджерами и анимационных роликов про продукты и процессы.",
-        image: "/bluee.jpg",
         tags: ["Разработка курсов"],
         titleSecondBlock: "",
     },

@@ -7,6 +7,9 @@ import Footer from "@/components/footer/footer";
 import Image from "next/image";
 import TextType from "@/components/ui/TextType";
 import ScrollStepper from "@/components/ui/ScrollProgressSteps";
+import ProductsSection from "@/components/production-page-component/mission-section/mission-section";
+import MissionSection from "@/components/production-page-component/mission-section/mission-section";
+import ProductionPage from "@/pages/productionPage";
 
 interface ProductPageProps {
     params: Promise<{ slug: string }>;
@@ -58,17 +61,42 @@ export default function ProductPage({ params }: ProductPageProps) {
         {
             title: "Постановка целей",
             text: "Ставьте и фиксируйте цели сотрудников с помощью простой и централизованной системы постановки целей",
-            mb: "pb-[380px]"
+            list: [
+                "Простое создание и автоматизация треков адаптации с помощью интуитивных конструкторов",
+                "Цели и достижения для ключевых этапов",
+                "Пошаговое руководство с персональными таймлайнами",
+                "Вовлекающие активности",
+                "Обратная связь в режиме реального времени",
+            ],
+            mb: "pb-[380px]",
+            talantMargin: "pb-[200px]",
         },
         {
             title: "Корректировка целей",
             text: "Отслеживайте прогресс, определяйте сложности и адаптируйте цели с учётом меняющихся условий",
-            mb: "pb-[320px]"
+            list: [
+                "Интуитивный конструктор траекторий обучения",
+                "Организация и управление обучающими мероприятиями",
+                "Тестирования с различными видами вопросов",
+                "Обязательное и факультативное обучение",
+                "Цифровая библиотека материалов",
+                "Обучение сотрудников, клиентов и партнёров"
+            ],
+            mb: "pb-[320px]",
+            talantMargin: "pb-[190px]",
         },
         {
             title: "Подведение итогов",
             text: "Оценивате достижения, учитывайте фактическое исполнение и вознаграждайте за успех",
-            mb: "pb-[310px]"
+            list: [
+                "Управление библиотекой и профилями компетенций",
+                "Гибкая оценка компетенций методом 360°/180°/90°",
+                "Аналитика и автоматические рекомендации по развитию компетенций",
+                "Треки Performance Review",
+                "Индивидуальные планы развития (ИПР)"
+            ],
+            mb: "pb-[310px]",
+            talantMargin: "",
         },
         {
             title: "Анализ результатов",
@@ -76,6 +104,11 @@ export default function ProductPage({ params }: ProductPageProps) {
             mb: "pb-[310px]"
         }
     ];
+
+    const visibleTitles =
+        slug === "tms"
+            ? titles.slice(0, 3)   // показываем только 3
+            : titles.slice(0, 4);  // показываем все 4
 
     return (
         <div className="overflow-x-hidden">
@@ -139,7 +172,7 @@ export default function ProductPage({ params }: ProductPageProps) {
                     </div>
                 </div>
             </div>
-            <div className="w-full h-full bg-[#F0F4F7]">
+            {slug !== "production" && (<div className="w-full h-full bg-[#F0F4F7]">
                 <div className="flex flex-col w-[85%] h-full mx-auto">
                     <div className="flex w-full justify-center">
                         <h1 className="w-full max-w-[680px] text-center py-30 font-medium text-6xl">
@@ -149,7 +182,7 @@ export default function ProductPage({ params }: ProductPageProps) {
                     <div className="flex justify-between pb-30 h-full">
                         <div className="h-full flex flex-col justify-between space-y-40">
                             <div className={slug === "goal"
-                                ?"relative w-[550px] h-[300px]"
+                                ? "relative w-[550px] h-[300px]"
                                 : "relative w-[520px] h-[380px]"}>
                                 <Image
                                     src={product.image}
@@ -159,13 +192,14 @@ export default function ProductPage({ params }: ProductPageProps) {
                                     height={slug === "tms" ? 300 : undefined}
                                     className={slug === "tms"
                                         ? "object-cover w-full h-full rounded-lg shadow-video flot-3"
-                                        :"object-cover"
-                                }
+                                        : "object-cover"
+                                    }
                                 />
                                 <div className={slug === "goal"
-                                    ?"absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                                    ? "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                                     : "absolute w-[179px] h-[420px] top-1/2 right-[-90px] -translate-y-1/2"}>
-                                    <div className={slug === "goal" ? "animate-orbit" : "float-1 shadow-video rounded-lg"}>
+                                    <div
+                                        className={slug === "goal" ? "animate-orbit" : "float-1 shadow-video rounded-lg"}>
                                         <Image
                                             src={product.imageSecondBlock_2}
                                             alt="small"
@@ -175,7 +209,8 @@ export default function ProductPage({ params }: ProductPageProps) {
                                         />
                                     </div>
                                 </div>
-                                {slug !== "goal" && (<div className="absolute shadow-video float-2 w-[315px] h-[137px] bottom-[10px] left-[-40px] rounded-lg">
+                                {slug !== "goal" && (<div
+                                    className="absolute shadow-video float-2 w-[315px] h-[137px] bottom-[10px] left-[-40px] rounded-lg">
                                     <div>
                                         <Image
                                             src={product.imageSecondBlock_3}
@@ -187,51 +222,73 @@ export default function ProductPage({ params }: ProductPageProps) {
                                     </div>
                                 </div>)}
                             </div>
-                            <div className="relative w-[550px] h-[300px]">
+                            <div className={slug === "goal"
+                                ? "relative w-[550px] h-[300px]"
+                                : "relative w-[550px] h-[380px]"}>
                                 <div className="absolute inset-0 z-0 flex items-center justify-center">
                                     <Image
-                                        src="/images/products-page-image/line-dots.gif"
+                                        src={product.imageSecondBlock_gif}
                                         alt="dots"
                                         width={140}
                                         height={140}
-                                        className="object-contain w-full h-full"
+                                        className={slug === "goal"
+                                            ? "object-contain w-full h-full"
+                                            : "object-cover w-full h-full rounded-lg shadow-video float-2"}
                                     />
                                 </div>
                                 <Image
-                                    src="/images/products-page-image/process-image-2.svg"
+                                    src={product.imageSecondBlock_4}
                                     alt="big"
-                                    fill
-                                    className="object-contain pointer-events-none z-10"
+                                    fill={slug === "goal"}
+                                    width={slug === "tms" ? 550 : undefined}
+                                    height={slug === "tms" ? 380 : undefined}
+                                    className={slug === "goal"
+                                        ? "object-contain pointer-events-none z-10"
+                                        : "absolute bottom-[-60px] left-10 object-contain w-[384px] h-[198px] z-10 shadow-video rounded-lg float-2"}
                                 />
                             </div>
-                            <div className="relative w-[412px] h-[224px]">
+                            <div className={slug === "goal"
+                                ? "relative w-[412px] h-[224px]"
+                                : "relative w-[550px] h-[380px]"}>
                                 <div className="absolute inset-0 z-0">
                                     <Image
-                                        src="/images/products-page-image/process-imagsecond-bg-3.svg"
+                                        src={product.imageSecondBlock_5}
                                         alt="static"
-                                        fill
-                                        className="object-contain opacity-40"
+                                        fill={slug === "goal"}
+                                        width={slug === "tms" ? 550 : undefined}
+                                        height={slug === "tms" ? 380 : undefined}
+                                        className={slug === "goal"
+                                            ? "object-contain opacity-40"
+                                            : "object-cover w-full h-full rounded-lg shadow-video float-3"}
                                     />
                                 </div>
                                 <div className="absolute inset-0 z-10">
                                     <Image
-                                        src="/images/products-page-image/process-image-second-3.svg"
+                                        src={product.imageSecondBlock_6}
                                         alt="big"
-                                        fill
-                                        className="object-contain pointer-events-none animate-slide"
+                                        fill={slug === "goal"}
+                                        width={slug === "tms" ? 463 : undefined}
+                                        height={slug === "tms" ? 53 : undefined}
+                                        className={slug === "goal"
+                                            ? "object-contain pointer-events-none animate-slide"
+                                            : "absolute left-[-30px] top-[20px] object-contain pointer-events-none shadow-video rounded-lg float-1"}
                                     />
                                 </div>
                                 <div className="absolute inset-0 z-10">
                                     <Image
-                                        src="/images/products-page-image/process-image-3.svg"
+                                        src={product.imageSecondBlock_7}
                                         alt="moving"
-                                        fill
-                                        className="object-contain"
+                                        fill={slug === "goal"}
+                                        width={slug === "tms" ? 463 : undefined}
+                                        height={slug === "tms" ? 53 : undefined}
+                                        className={slug === "goal"
+                                            ? "object-contain"
+                                            : "absolute bottom-[30px] right-[-30px] object-contain shadow-video rounded-lg float-2"}
                                     />
                                 </div>
 
                             </div>
-                            <div className="relative w-[383px] h-[280px]">
+                            {slug === "goal" && (<div className="relative w-[383px] h-[280px]">
                                 <Image
                                     src="/images/products-page-image/process-image-4.svg"
                                     alt="base"
@@ -267,30 +324,34 @@ export default function ProductPage({ params }: ProductPageProps) {
                                     </div>
 
                                 </div>
-                            </div>
+                            </div>)}
 
                         </div>
                         <div>
                             <ScrollStepper
-                                steps={[
-                                    { label: "One", offset: 440 },
-                                    { label: "Two", offset: 380 },
-                                    { label: "Three", offset: 360 },
-                                    { label: "Four" },
+                                steps={slug === "goal" ? [
+                                    {label: "One", offset: 440},
+                                    {label: "Two", offset: 380},
+                                    {label: "Three", offset: 360},
+                                    {label: "Four"},
+                                ] : [
+                                    {label: "One", offset: 480},
+                                    {label: "Two", offset: 480},
+                                    {label: "Three", offset: 360},
                                 ]}
                                 activeDotColor={slug === "tms" ? "#7e6cac" : "#e76c73"}
                                 sliderColor={slug === "tms" ? "#7e6cac" : "#e76c73"}
                             />
                         </div>
-                        <div className="flex flex-col">
-                            {titles.map((item, index) => (
+                        <div className="flex flex-col h-full">
+                            {visibleTitles.map((item, index) => (
                                 <div key={index}
                                      ref={(el) => {
                                          sectionRefs.current[index] = el;
                                      }}
                                      className={slug === "goal"
                                          ? `flex text-step flex-col ${item.mb} transition-all duration-900`
-                                         : `flex text-step-2 flex-col ${item.mb} transition-all duration-900`}>
+                                         : `flex text-step-2 flex-col ${item.talantMargin} transition-all duration-900`}>
                                     <div
                                         ref={(el) => {
                                             titlesRef.current[index] = el;
@@ -301,16 +362,26 @@ export default function ProductPage({ params }: ProductPageProps) {
                                     >
                                         {item.title}
                                     </div>
-
                                     <div className="text-[#192128] font-normal text-lg w-full max-w-[523px]">
                                         {item.text}
                                     </div>
+                                    {slug === "tms" && (<div className="flex flex-col gap-3 mt-6">
+                                        {item.list?.map((line, i) => (
+                                            <div key={i} className="flex items-center gap-3">
+                                                <div className="w-[8px] h-[8px] rounded-full bg-[#7663E6]"></div>
+                                                <p className="text-[#192128] text-lg font-normal  max-w-[500px]">
+                                                    {line}
+                                                </p>
+                                            </div>
+                                        ))}
+                                    </div>)}
                                 </div>
                             ))}
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>)}
+            {slug === "production" ? <ProductionPage/> : null}
             <Footer/>
         </div>
     );
