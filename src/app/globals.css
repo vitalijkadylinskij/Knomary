@@ -282,3 +282,29 @@ html.lenis {
   border-radius: calc(28px - 0px); /* внутренний радиус контента (можно корректировать) */
 }
 
+@keyframes grow {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.animate-grow {
+  animation: grow 0.5s ease-out forwards;
+}
+
+@keyframes float-orbit {
+  0%   { transform: translate(0px, 0px); }
+  20%  { transform: translate(6px, -4px); }
+  40%  { transform: translate(10px, 6px); }
+  60%  { transform: translate(-6px, 10px); }
+  80%  { transform: translate(-10px, -4px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+.float-orbit {
+  animation: float-orbit 12s ease-in-out infinite;
+}
+

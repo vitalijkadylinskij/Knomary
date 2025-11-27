@@ -9,6 +9,7 @@ import TextType from "@/components/ui/TextType";
 import ScrollStepper from "@/components/ui/ScrollProgressSteps";
 import ProductionPage from "@/pages/productionPage";
 import TmsPage from "@/pages/tmsPage";
+import GoalSettingsPage from "@/pages/goalSettingsPage";
 
 interface ProductPageProps {
     params: Promise<{ slug: string }>;
@@ -380,6 +381,7 @@ export default function ProductPage({ params }: ProductPageProps) {
                     </div>
                 </div>
             </div>)}
+            {slug === "goal" ? <GoalSettingsPage /> : null}
             {slug === "production" ? <ProductionPage/> : null}
             {slug === "tms" ? <TmsPage /> : null}
             <Footer/>

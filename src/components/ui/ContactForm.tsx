@@ -8,7 +8,7 @@ export default function ContactForm() {
     const [product, setProduct] = useState("");
 
     return (
-        <section className="w-full bg-[#E9EDF3] rounded-2xl p-10 md:p-20">
+        <section className="w-full bg-[#f0f4f7] shadow-video rounded-2xl p-10 md:p-20">
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
                 {/* LEFT TEXT */}
                 <div>
